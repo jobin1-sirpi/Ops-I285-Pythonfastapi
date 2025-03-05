@@ -4,11 +4,13 @@ FROM python:3.9
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the application files
+# Copy application files
 COPY app/ /app/
 COPY static/ /app/static/
 COPY templates/ /app/templates/
-COPY requirements.txt /app/
+
+# Copy the requirements.txt file from the correct location
+COPY app/requirements.txt /app/
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
